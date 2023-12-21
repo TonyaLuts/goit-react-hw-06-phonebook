@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { FilterTitle, FilterForm } from './Filter.styled';
 import { searchFilter } from '../../redux/filterSlice';
+import { getFilter } from '../../redux/selectors';
 
 export const FilterContact = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter.filter);
+  const filter = useSelector(getFilter);
 
   const handleSearchFilter = event => {
     dispatch(searchFilter(event.target.value));

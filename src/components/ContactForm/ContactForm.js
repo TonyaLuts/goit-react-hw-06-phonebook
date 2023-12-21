@@ -3,10 +3,11 @@ import { Form, Field, FormName, Button } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contactSlice';
 import { nanoid } from 'nanoid';
+import { getContacts } from '../../redux/selectors';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(getContacts);
 
   const handleAddContact = ({ name, number }) => {
     const contactVerification = contacts.findIndex(
