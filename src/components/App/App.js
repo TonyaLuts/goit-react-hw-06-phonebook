@@ -14,9 +14,13 @@ export const App = () => {
       <Container>
         <h1>Phonebook</h1>
         <ContactForm></ContactForm>
+        {contacts.length > 0 && (
+          <>
+            <h2>Contacts</h2>
+            <FilterContact />
+          </>
+        )}
 
-        <h2>Contacts</h2>
-        <FilterContact />
         {contacts.length > 0 && <ContactList></ContactList>}
       </Container>
       <GlobalStyle />
